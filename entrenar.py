@@ -19,7 +19,6 @@ import cv2
 import numpy as np
 import os
 from pathlib import Path
-import pickle
 
 # --- Rutas base ---
 
@@ -33,7 +32,7 @@ DATA_DIR = BASE_DIR / "base_rostros"
 MODEL_PATH = BASE_DIR / "modelo_rostros.yml"
 
 # Archivo donde se guardará el diccionario {nombre_persona: id}
-LABELS_PATH = BASE_DIR / "labels.pkl"
+LABELS_PATH = BASE_DIR / "labels.npy"
 
 # --- Cargamos el clasificador Haar incluido en OpenCV ---
 
@@ -135,10 +134,9 @@ recognizer.train(faces_array, ids_array)
 recognizer.write(str(MODEL_PATH))
 print("Modelo guardado en:", MODEL_PATH)
 
-# --- Guardamos el diccionario de labels ({nombre: id}) con pickle ---
+# --- Guardamos el diccionario de labels ({nombre: id}) con numpy ---
 
-with open(LABELS_PATH, "wb") as f:
-    pickle.dump(label_ids, f)
+np.save(LABELS_PATH, label_ids)
 
 print("Etiquetas guardadas en:", LABELS_PATH)
 print("Diccionario nombre -> id:", label_ids)
