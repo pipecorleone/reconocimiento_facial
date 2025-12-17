@@ -235,6 +235,3 @@ python reconocimiento.py
 ```
 
 ---
-
-### Nota de alcance
-Por una limitación temporal del visor web, no fue posible leer el contenido interno de `entrenar.py` y `reconocimiento.py` desde esta sesión; por lo mismo, el tutorial se enfoca en el flujo de ejecución y buenas prácticas multiplataforma, sin suponer detalles finos del dataset o del protocolo Arduino más allá de lo que se observa en la estructura del repositorio. citeturn9view2
